@@ -34,7 +34,7 @@ internal class Program
             return binarios;
 
         }
-        for( int x= binarios.Length -1 ; x >= 0;x++)
+        for( int x= binarios.Length -1 ; x >= 0;x--)
         {
             Console.Write(binarios[x] + " ");
         }
