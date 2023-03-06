@@ -5,25 +5,36 @@ internal class Program
     private static void Main(string[] args)
     {
         int[] binarios = new int[8];
-        int numero;
+        int valor;
         int resto;
-        int contador = 7;
+        int quociente;
         Console.WriteLine("Informe um numero: ");
-        numero = int.Parse(Console.ReadLine());
+        valor = int.Parse(Console.ReadLine());
 
-        do
-        {
-            binarios[contador] = converteBinario(numero);
-            contador--;
-        }while(contador >= 0);
 
-        int converteBinario(int num)
+        converteBinario(valor);
+
+        int[] converteBinario(int valor)
         {
-            resto =  numero % 2;
-            numero = numero /2;
-            return resto;
+
+            quociente = valor;
+
+            for (int x = 0; x < binarios.Length; x++)
+            {
+                if ((quociente == 1) && (quociente % 2 == 0))
+                {
+                    x = binarios.Length;
+                }
+
+                resto = quociente % 2;
+                binarios[x] = resto;
+                quociente = valor / 2;
+                valor = quociente;
+            }
+            return binarios;
+
         }
-        for( int x=0; x < 8;x++)
+        for( int x= binarios.Length -1 ; x >= 0;x++)
         {
             Console.Write(binarios[x] + " ");
         }
